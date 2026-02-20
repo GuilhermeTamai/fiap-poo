@@ -17,5 +17,9 @@ public class SistemaPrincipal {
 		smartWatchDoProfessor.totalPassos = 25000;
 		System.out.println("Meu SmartWatch é: " + meuSmartWatch.cor);
 		System.out.println("A do professor é: " + smartWatchDoProfessor.cor);
+		System.out.println("Meu SmartWatch é: " + meuSmartWatch.marca);
+		System.out.println("A do professor é: " + smartWatchDoProfessor.marca);
+		System.out.println("Meu SmartWatch é: " + meuSmartWatch.totalPassos);
+		System.out.println("A do professor é: " + smartWatchDoProfessor.totalPassos);
 	}
 }
