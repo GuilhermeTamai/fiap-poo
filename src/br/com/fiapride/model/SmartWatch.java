@@ -4,27 +4,21 @@ public class SmartWatch {
 
     public String cor;
     public String marca;
-    public int totalPassos; // Atributo que guarda o total de passos do usuário
+    public int totalPassos;
 
-    // Método para adicionar passos ao total
+    // Método para adicionar passos
     public void adicionarPassos(int passos) {
-        // Regra de negócio: Só aceita valores positivos
         if (passos <= 0) {
             System.out.println("Erro: não é permitido adicionar passos negativos ou zero.");
-            return; 
+            return;
         }
-        this.totalPassos += passos;
-        System.out.println("Passos adicionados. Total agora: " + this.totalPassos);
+        totalPassos += passos;
+        System.out.println("Passos adicionados. Total agora: " + totalPassos);
     }
 
-    // Método para definir o total de passos (pode ser usado para zerar ou ajustar)
-    public void definirTotalPassos(int novoTotal) {
-        // Regra de negócio: total de passos não pode ser negativo
-        if (novoTotal < 0) {
-            System.out.println("Erro: total de passos não pode ser negativo.");
-            return; 
-        }
-        this.totalPassos = novoTotal;
-        System.out.println("Total de passos atualizado: " + this.totalPassos);
+    // Método para zerar os passos (corrigido)
+    public void zerarPassos() {
+        totalPassos = 0;
+        System.out.println("Total de passos zerado.");
     }
 }

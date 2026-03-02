@@ -9,17 +9,17 @@ public class SistemaPrincipal {
         SmartWatch meuSmartWatch = new SmartWatch();
         meuSmartWatch.cor = "Preto";
         meuSmartWatch.marca = "Apple";
-        meuSmartWatch.definirTotalPassos(10000);  // usar método com validação
+        meuSmartWatch.adicionarPassos(10000);  // usando método com validação
 
         // Instância 2
         SmartWatch smartWatchDoProfessor = new SmartWatch();
         smartWatchDoProfessor.cor = "Branco";
         smartWatchDoProfessor.marca = "Samsung";
-        smartWatchDoProfessor.definirTotalPassos(25000);  // usar método com validação
+        smartWatchDoProfessor.adicionarPassos(25000);  // usando método com validação
 
         // Alterando o estado usando métodos
         meuSmartWatch.adicionarPassos(500);          // agora totalPassos = 10500
-        smartWatchDoProfessor.definirTotalPassos(0); // zera os passos
+        smartWatchDoProfessor.zerarPassos();        // zera os passos
 
         // Exibindo resultados
         System.out.println("Meu SmartWatch é: " + meuSmartWatch.cor);
@@ -34,6 +34,5 @@ public class SistemaPrincipal {
 
         // Teste de validação
         meuSmartWatch.adicionarPassos(-100); // mensagem de erro
-        smartWatchDoProfessor.definirTotalPassos(-500); // mensagem de erro
     }
 }
