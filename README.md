@@ -28,7 +28,9 @@ O objeto `SmartWatch` representa um relógio inteligente real, como:
 A classe possui os seguintes atributos:
 
 public String cor;
+
 public String marca;
+
 public int totalPassos;
 
 ## Métodos
@@ -51,3 +53,4 @@ Zera completamente o total de passos.
 Exemplo:
 
 meuSmartWatch.zerarPassos();
+
