@@ -28,7 +28,14 @@ public class TesteMeuObjeto {
         System.out.println("Marca: " + smartWatchDoProfessor.getMarca());
         System.out.println("Total de passos: " + smartWatchDoProfessor.getTotalPassos());
 
-        // Teste de validação
+        // Teste de validação: tentar adicionar passos negativos (deve dar erro)
         meuSmartWatch.adicionarPassos(-100); // mensagem de erro
+
+        // Tentativa de burlar a proteção (não compila porque atributo e setter são privados)
+        // meuSmartWatch.totalPassos = -5000;  // ERRO: atributo privado
+        // meuSmartWatch.setTotalPassos(-5000); // ERRO: método privado
+
+        // Mostrar que o valor não mudou
+        System.out.println("Total de passos após tentativa de burlar: " + meuSmartWatch.getTotalPassos());
     }
 }
