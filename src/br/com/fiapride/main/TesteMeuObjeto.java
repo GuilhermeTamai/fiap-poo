@@ -1,37 +1,33 @@
 package br.com.fiapride.main;
- 
+
 import br.com.fiapride.model.SmartWatch;
- 
+
 public class TesteMeuObjeto {
     public static void main(String[] args) {
- 
+
         // Instância 1
-        SmartWatch meuSmartWatch = new SmartWatch();
-        meuSmartWatch.cor = "Preto";
-        meuSmartWatch.marca = "Apple";
+        SmartWatch meuSmartWatch = new SmartWatch("Preto", "Apple"); // Usando o construtor
         meuSmartWatch.adicionarPassos(10000);  // usando método com validação
- 
+
         // Instância 2
-        SmartWatch smartWatchDoProfessor = new SmartWatch();
-        smartWatchDoProfessor.cor = "Branco";
-        smartWatchDoProfessor.marca = "Samsung";
+        SmartWatch smartWatchDoProfessor = new SmartWatch("Branco", "Samsung"); // Usando o construtor
         smartWatchDoProfessor.adicionarPassos(25000);  // usando método com validação
- 
+
         // Alterando o estado usando métodos
         meuSmartWatch.adicionarPassos(500);          // agora totalPassos = 10500
         smartWatchDoProfessor.zerarPassos();        // zera os passos
- 
-        // Exibindo resultados
-        System.out.println("Meu SmartWatch é: " + meuSmartWatch.cor);
-        System.out.println("Marca: " + meuSmartWatch.marca);
-        System.out.println("Total de passos: " + meuSmartWatch.totalPassos);
- 
+
+        // Exibindo resultados usando getters
+        System.out.println("Meu SmartWatch é: " + meuSmartWatch.getCor());
+        System.out.println("Marca: " + meuSmartWatch.getMarca());
+        System.out.println("Total de passos: " + meuSmartWatch.getTotalPassos());
+
         System.out.println("----------------------");
- 
-        System.out.println("SmartWatch do professor é: " + smartWatchDoProfessor.cor);
-        System.out.println("Marca: " + smartWatchDoProfessor.marca);
-        System.out.println("Total de passos: " + smartWatchDoProfessor.totalPassos);
- 
+
+        System.out.println("SmartWatch do professor é: " + smartWatchDoProfessor.getCor());
+        System.out.println("Marca: " + smartWatchDoProfessor.getMarca());
+        System.out.println("Total de passos: " + smartWatchDoProfessor.getTotalPassos());
+
         // Teste de validação
         meuSmartWatch.adicionarPassos(-100); // mensagem de erro
     }

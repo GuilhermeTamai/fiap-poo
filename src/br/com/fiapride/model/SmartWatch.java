@@ -2,9 +2,47 @@ package br.com.fiapride.model;
 
 public class SmartWatch {
 
-    public String cor;
-    public String marca;
-    public int totalPassos;
+    // Atributos privados
+    private String cor;
+    private String marca;
+    private int totalPassos;
+
+    // Construtor
+    public SmartWatch(String cor, String marca) {
+        this.setCor(cor);
+        this.setMarca(marca);
+        this.setTotalPassos(0); // Inicializa com zero
+    }
+
+    // Getters e Setters com CamelCase
+    public String getCor() {
+        return cor;
+    }
+
+    public void setCor(String cor) {
+        this.cor = cor;
+    }
+
+    public String getMarca() {
+        return marca;
+    }
+
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
+
+    public int getTotalPassos() {
+        return totalPassos;
+    }
+
+    // Setter privado com validação para totalPassos
+    private void setTotalPassos(int passos) {
+        if (passos < 0) {
+            System.out.println("Erro: total de passos não pode ser negativo.");
+            return;
+        }
+        this.totalPassos = passos;
+    }
 
     // Método para adicionar passos
     public void adicionarPassos(int passos) {
@@ -12,13 +50,13 @@ public class SmartWatch {
             System.out.println("Erro: não é permitido adicionar passos negativos ou zero.");
             return;
         }
-        totalPassos += passos;
-        System.out.println("Passos adicionados. Total agora: " + totalPassos);
+        setTotalPassos(getTotalPassos() + passos); // Usa setter com validação
+        System.out.println("Passos adicionados. Total agora: " + getTotalPassos());
     }
 
-    // Método para zerar os passos (corrigido)
+    // Método para zerar os passos
     public void zerarPassos() {
-        totalPassos = 0;
+        setTotalPassos(0); // Usa setter com validação
         System.out.println("Total de passos zerado.");
     }
 }
