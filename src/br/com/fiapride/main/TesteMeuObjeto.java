@@ -1,40 +1,48 @@
 package br.com.fiapride.main;
 
 import br.com.fiapride.model.SmartWatch;
+import br.com.fiapride.model.Bateria;
 
 public class TesteMeuObjeto {
     public static void main(String[] args) {
 
-        // Instância 1 (agora usando construtor)
-        SmartWatch meuSmartWatch = new SmartWatch("Preto", "Apple");
-        meuSmartWatch.adicionarPassos(10000);
+        // Criando baterias
+        Bateria bateria1 = new Bateria(80);
+        Bateria bateria2 = new Bateria(50);
 
-        // Instância 2
-        SmartWatch smartWatchDoProfessor = new SmartWatch("Branco", "Samsung");
+        // Criando SmartWatches com associação
+        SmartWatch meuSmartWatch = new SmartWatch("Preto", "Apple", bateria1);
+        SmartWatch smartWatchDoProfessor = new SmartWatch("Branco", "Samsung", bateria2);
+
+        // Adicionando passos
+        meuSmartWatch.adicionarPassos(10000);
         smartWatchDoProfessor.adicionarPassos(25000);
 
-        // Alterando o estado
+        // Alterando estado
         meuSmartWatch.adicionarPassos(500);
         smartWatchDoProfessor.zerarPassos();
 
-        // Exibindo resultados
-        System.out.println("Meu SmartWatch é: " + meuSmartWatch.getCor());
+        // Exibindo dados do primeiro
+        System.out.println("Meu SmartWatch:");
+        System.out.println("Cor: " + meuSmartWatch.getCor());
         System.out.println("Marca: " + meuSmartWatch.getMarca());
-        System.out.println("Total de passos: " + meuSmartWatch.getTotalPassos());
+        System.out.println("Passos: " + meuSmartWatch.getTotalPassos());
+        System.out.println("Bateria: " + meuSmartWatch.getBateriaPrincipal().getNivel() + "%");
 
         System.out.println("----------------------");
 
-        System.out.println("SmartWatch do professor é: " + smartWatchDoProfessor.getCor());
+        // Exibindo dados do segundo
+        System.out.println("SmartWatch do Professor:");
+        System.out.println("Cor: " + smartWatchDoProfessor.getCor());
         System.out.println("Marca: " + smartWatchDoProfessor.getMarca());
-        System.out.println("Total de passos: " + smartWatchDoProfessor.getTotalPassos());
+        System.out.println("Passos: " + smartWatchDoProfessor.getTotalPassos());
+        System.out.println("Bateria: " + smartWatchDoProfessor.getBateriaPrincipal().getNivel() + "%");
+
+        System.out.println("----------------------");
 
         // Teste de validação
         meuSmartWatch.adicionarPassos(-100);
 
-        // Tentativa de burlar (não compila)
-        // meuSmartWatch.totalPassos = -5000;
-        // meuSmartWatch.setTotalPassos(-5000);
-
-        System.out.println("Total de passos após tentativa de burlar: " + meuSmartWatch.getTotalPassos());
+        System.out.println("Passos após tentativa inválida: " + meuSmartWatch.getTotalPassos());
     }
 }
