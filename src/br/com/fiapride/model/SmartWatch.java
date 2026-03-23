@@ -2,28 +2,54 @@ package br.com.fiapride.model;
 
 public class SmartWatch {
 
-	public String cor;
-	public String marca;
-	public int totalPassos; // Atributo que guarda o total de passos do usuário
+    // Atributos privados
+    private String cor;
+    private String marca;
+    private int totalPassos;
 
-	// Método para adicionar passos ao total
-	public void adicionarPassos(int passos) {
-		// Regra de negócio: Só aceita valores positivos
-		if (passos <= 0) {
-			System.out.println("Erro: não é permitido adicionar passos negativos ou zero.");
-			return;
-		}
-		this.totalPassos += passos;
-		System.out.println("Passos adicionados. Total agora: " + this.totalPassos);
-	}
+    // Getters e Setters com validação
+    public String getCor() {
+        return cor;
+    }
 
-	public void zerarPassos(int novoTotal) {
-		// Regra de negócio: total de passos não pode ser negativo
-		if (novoTotal < 0) {
-			System.out.println("Erro: total de passos não pode ser negativo.");
-			return;
-		}
-		this.totalPassos = novoTotal;
-		System.out.println("Total de passos atualizado: " + this.totalPassos);
-	}
+    public void setCor(String cor) {
+        this.cor = cor;
+    }
+
+    public String getMarca() {
+        return marca;
+    }
+
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
+
+    public int getTotalPassos() {
+        return totalPassos;
+    }
+
+    // Setter privado com validação para totalPassos
+    private void setTotalPassos(int passos) {
+        if (passos < 0) {
+            System.out.println("Erro: total de passos não pode ser negativo.");
+            return;
+        }
+        this.totalPassos = passos;
+    }
+
+    // Método para adicionar passos
+    public void adicionarPassos(int passos) {
+        if (passos <= 0) {
+            System.out.println("Erro: não é permitido adicionar passos negativos ou zero.");
+            return;
+        }
+        setTotalPassos(getTotalPassos() + passos);
+        System.out.println("Passos adicionados. Total agora: " + getTotalPassos());
+    }
+
+    // Método para zerar os passos
+    public void zerarPassos() {
+        setTotalPassos(0);
+        System.out.println("Total de passos zerado.");
+    }
 }
