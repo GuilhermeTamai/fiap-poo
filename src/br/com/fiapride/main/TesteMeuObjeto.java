@@ -5,23 +5,19 @@ import br.com.fiapride.model.SmartWatch;
 public class TesteMeuObjeto {
     public static void main(String[] args) {
 
-        // Instância 1 (sem construtor, usando setters)
-        SmartWatch meuSmartWatch = new SmartWatch();
-        meuSmartWatch.setCor("Preto");
-        meuSmartWatch.setMarca("Apple");
+        // Instância 1 (agora usando construtor)
+        SmartWatch meuSmartWatch = new SmartWatch("Preto", "Apple");
         meuSmartWatch.adicionarPassos(10000);
 
         // Instância 2
-        SmartWatch smartWatchDoProfessor = new SmartWatch();
-        smartWatchDoProfessor.setCor("Branco");
-        smartWatchDoProfessor.setMarca("Samsung");
+        SmartWatch smartWatchDoProfessor = new SmartWatch("Branco", "Samsung");
         smartWatchDoProfessor.adicionarPassos(25000);
 
-        // Alterando o estado usando métodos
+        // Alterando o estado
         meuSmartWatch.adicionarPassos(500);
         smartWatchDoProfessor.zerarPassos();
 
-        // Exibindo resultados usando getters
+        // Exibindo resultados
         System.out.println("Meu SmartWatch é: " + meuSmartWatch.getCor());
         System.out.println("Marca: " + meuSmartWatch.getMarca());
         System.out.println("Total de passos: " + meuSmartWatch.getTotalPassos());
@@ -32,14 +28,13 @@ public class TesteMeuObjeto {
         System.out.println("Marca: " + smartWatchDoProfessor.getMarca());
         System.out.println("Total de passos: " + smartWatchDoProfessor.getTotalPassos());
 
-        // Teste de validação: tentar adicionar passos negativos
+        // Teste de validação
         meuSmartWatch.adicionarPassos(-100);
 
-        // Tentativa de burlar a proteção (não compila porque atributo e setter são privados)
-        // meuSmartWatch.totalPassos = -5000;  // ERRO
-        // meuSmartWatch.setTotalPassos(-5000); // ERRO
+        // Tentativa de burlar (não compila)
+        // meuSmartWatch.totalPassos = -5000;
+        // meuSmartWatch.setTotalPassos(-5000);
 
-        // Mostrar que o valor não mudou
         System.out.println("Total de passos após tentativa de burlar: " + meuSmartWatch.getTotalPassos());
     }
 }

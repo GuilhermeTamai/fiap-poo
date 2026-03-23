@@ -7,7 +7,14 @@ public class SmartWatch {
     private String marca;
     private int totalPassos;
 
-    // Getters e Setters com validação
+    // Construtor (atributos essenciais: cor e marca)
+    public SmartWatch(String cor, String marca) {
+        this.setCor(cor);
+        this.setMarca(marca);
+        this.setTotalPassos(0); // inicializa com zero
+    }
+
+    // Getters e Setters
     public String getCor() {
         return cor;
     }
@@ -28,7 +35,7 @@ public class SmartWatch {
         return totalPassos;
     }
 
-    // Setter privado com validação para totalPassos
+    // Setter privado com validação
     private void setTotalPassos(int passos) {
         if (passos < 0) {
             System.out.println("Erro: total de passos não pode ser negativo.");
